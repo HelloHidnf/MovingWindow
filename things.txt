@@ -1,0 +1,72 @@
+if window border = screen border check:
+	if screen border is against another screen border:
+		if left or right:
+			if left:
+				if trajectory right:
+					return
+				else if top of window is above top of other screen or bottom of window is below bottom of other screen:
+					reverse trajectory
+			if right:
+				if trajectory left:
+					return
+				else if top of window is above top of other screen or bottom of window is below bottom of other screen:
+					reverse trajectory
+		if up or down:
+			if up:
+				if trajectory down:
+					return
+				else if left of window is to the left of other screen or if right of window is to the right of other screen:
+					reverse trajectory
+			if down:
+				if trajectory up:
+					return
+				else if left of window is to the left of other screen or if right of window is to the right of other screen:
+					reverse trajectory
+
+	if it's 3 screens:
+		hope that the above works
+
+if(frm.Left == screen.Bounds.Left){
+	foreach(scrn in screens){
+		if(screen.Bounds.Left == scrn.Bounds.Right) return Screen scrn;
+	}
+	if(scrn == null || scrn.Bounds.Right != screen.Bounds.Left){
+		return speedx = -speedx;
+	}
+	else if(scrn.Bounds.Bottom < frm.Bottom || scrn.Bounds.Top > frm.Top){
+		return speedx = -speedx;
+	}
+}
+if(frm.Right == screen.Bounds.Right){
+	foreach(scrn in screens){
+		if(screen.Bounds.Right == scrn.Bounds.Left) return Screen scrn;
+	}
+	if(scrn == null || scrn.Bounds.Left != screen.Bounds.Left){
+		return speedx = -speedx;
+	}
+	else if(scrn.Bounds.Bottom < frm.Bottom || scrn.Bounds.Top > frm.Top){
+		return speedx = -speedx;
+	}
+}
+if(frm.Top == screen.Bounds.Top){
+	foreach(scrn in screens){
+		if(screen.Bounds.Top == scrn.Bounds.Bottom) return Screen scrn;
+	}
+	if(scrn == null || scrn.Bounds.Bottom != sceen.Bounds.Top){
+		return speedy = -speedy;
+	}
+	else if(scrn.Bounds.Top < frm.Top || scrn.Bounds.Bottom > frm.Bottom){
+		return speedy = -speedy;
+	}
+}
+if(frm.Bottom == screen.Bounds.Bottom){
+	foreach(scrn in screens){
+		if(screen.Bounds.Bottom == scrn.Bounds.Top) return Screen scrn;
+	}
+	if(scrn == null || scrn.Bounds.Top != sceen.Bounds.Bottom){
+		return speedy = -speedy;
+	}
+	else if(scrn.Bounds.Top < frm.Top || scrn.Bounds.Bottom > frm.Bottom){
+		return speedy = -speedy;
+	}
+}
